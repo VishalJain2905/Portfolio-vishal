@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #0a0a0f;
+  --surface: #12121a;
+  --border: #1e1e2e;
+  --accent: #00d4aa;
+  --accent-dim: #00a884;
+  --muted: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--void);
+  color: #e5e5e5;
+  font-family: 'Orbitron', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle grid overlay */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 170, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 170, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Intro screen grid (dark gray background) */
+.intro-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glass panel */
+.glass {
+  background: rgba(18, 18, 26, 0.7);
+  border: 1px solid rgba(30, 30, 46, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+/* Glow border on focus/hover */
+.glow-border {
+  box-shadow: 0 0 0 1px rgba(0, 212, 170, 0.2);
+}
+.glow-border:hover {
+  box-shadow: 0 0 0 1px rgba(0, 212, 170, 0.4), 0 0 20px rgba(0, 212, 170, 0.08);
+}
+
+/* Section title styling */
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Monospace labels */
+.mono-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
