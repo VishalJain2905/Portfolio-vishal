@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
@@ -44,8 +44,6 @@ type CarIntroProps = {
 export function CarIntro({ onComplete }: CarIntroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const tryCompleteRef = useRef<() => void>(() => {});
-  const [progress, setProgress] = useState<string>('');
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -154,20 +152,6 @@ export function CarIntro({ onComplete }: CarIntroProps) {
   return (
     <div className="fixed inset-0 z-[50] bg-[#4b4e52]" ref={containerRef}>
       <div className="absolute inset-0 z-[1] pointer-events-none intro-grid" aria-hidden />
-      {(progress || error) && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#4b4e52] intro-grid">
-          <p className="text-lg text-zinc-600">{error ?? progress}</p>
-          {error && (
-            <button
-              type="button"
-              onClick={() => tryCompleteRef.current()}
-              className="rounded-lg bg-void px-4 py-2 text-sm text-white hover:opacity-90"
-            >
-              Enter site
-            </button>
-          )}
-        </div>
-      )}
       <button
         type="button"
         onClick={() => tryCompleteRef.current()}
