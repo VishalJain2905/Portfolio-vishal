@@ -1,90 +1,113 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
-import { profile } from '../data/resume';
+import { ArrowUpRight, Linkedin, Github } from 'lucide-react';
+import { ThreeBackground } from './ThreeBackground';
+import { profile, highlights } from '../data/resume';
 
 export function Hero() {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative bg-grid overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-void via-transparent to-void pointer-events-none" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10 pt-14">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mono-label text-accent mb-4"
-        >
-          &gt; Full Stack Developer
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4"
-        >
-          {profile.name}
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="text-lg sm:text-xl text-zinc-400 mb-8 max-w-2xl mx-auto"
-        >
-          {profile.headline}
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.65 }}
-          className="flex flex-wrap justify-center gap-4 text-sm text-zinc-500"
-        >
-          <a href={`mailto:${profile.email}`} className="flex items-center gap-2 hover:text-accent transition-colors">
-            <Mail size={16} /> {profile.email}
-          </a>
-          <a href={`tel:${profile.phone.replace(/-/g, '')}`} className="flex items-center gap-2 hover:text-accent transition-colors">
-            <Phone size={16} /> {profile.phone}
-          </a>
-          <span className="flex items-center gap-2">
-            <MapPin size={16} /> {profile.location}
-          </span>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="flex justify-center gap-4 mt-8"
-        >
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-lg glass glow-border hover:border-accent/50 transition-colors text-zinc-400 hover:text-accent"
-            aria-label="LinkedIn"
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-white">
+      <div className="section-inner relative z-10 w-full max-w-6xl pt-28 pb-24">
+        <div className="grid lg:grid-cols-[300px_1fr] xl:grid-cols-[320px_1fr] gap-12 xl:gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto lg:mx-0 w-full max-w-[320px]"
           >
-            <Linkedin size={20} />
-          </a>
-          <a
-            href={profile.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-lg glass glow-border hover:border-accent/50 transition-colors text-zinc-400 hover:text-accent"
-            aria-label="GitHub"
-          >
-            <Github size={20} />
-          </a>
-        </motion.div>
+            <div className="profile-frame aspect-[4/5]">
+              <img src="/profile.png" alt={profile.name} className="w-full h-full object-cover object-top" />
+            </div>
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              {highlights.map((stat) => (
+                <div key={stat.label} className="card-pro px-4 py-3">
+                  <p className="text-lg font-bold text-slate-900">{stat.value}</p>
+                  <p className="text-[11px] text-slate-500 leading-snug mt-0.5">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <div className="relative text-center lg:text-left">
+            <div className="hidden lg:block absolute -right-8 top-1/2 -translate-y-1/2 w-[min(420px,45vw)] h-[min(420px,70vh)] opacity-[0.35] pointer-events-none">
+              <div className="relative w-full h-full">
+                <ThreeBackground />
+                <div className="absolute inset-0 bg-gradient-to-l from-white via-white/90 to-transparent" />
+              </div>
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="mono-label text-teal-700 mb-5"
+            >
+              {profile.tagline}
+            </motion.p>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="relative font-display text-4xl sm:text-5xl md:text-6xl text-slate-900 leading-[1.08] tracking-tight mb-4"
+            >
+              Hi, I&apos;m {profile.name.split(' ')[0]}.
+              <br />
+              <span className="text-slate-500 font-normal text-3xl sm:text-4xl md:text-[2.75rem]">
+                I build systems & AI agents.
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="relative text-slate-600 text-base sm:text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed mb-8"
+            >
+              {profile.headline}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="relative flex flex-wrap justify-center lg:justify-start items-center gap-3"
+            >
+              <a href="#ai" className="btn-primary">
+                AI Dominate
+                <ArrowUpRight size={16} />
+              </a>
+              <a href={`mailto:${profile.email}`} className="btn-secondary">
+                Contact
+              </a>
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full border border-slate-200 text-slate-500 hover:text-teal-700 hover:border-teal-200 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full border border-slate-200 text-slate-500 hover:text-teal-700 hover:border-teal-200 transition-colors"
+                aria-label="GitHub"
+              >
+                <Github size={18} />
+              </a>
+            </motion.div>
+          </div>
+        </div>
       </div>
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 w-6 h-10 rounded-full border-2 border-accent/40 flex justify-center pt-1"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
+
+      <a
+        href="#about"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 mono-label text-slate-400 hover:text-teal-700 transition-colors"
       >
-        <motion.span
-          className="w-1 h-2 rounded-full bg-accent"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-        />
-      </motion.div>
+        Scroll ↓
+      </a>
     </section>
   );
 }

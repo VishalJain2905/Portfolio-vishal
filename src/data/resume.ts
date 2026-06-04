@@ -1,12 +1,56 @@
 export const profile = {
   name: 'Vishal Jain',
+  initials: 'VJ',
   location: 'Indore, Madhya Pradesh 452010',
   phone: '+91-9993746976',
   email: 'princeprofessional3@gmail.com',
-  linkedin: 'https://linkedin.com/in/vishal-jain',
-  github: 'https://github.com/vishal-jain',
-  tagline: 'Full Stack Developer',
-  headline: 'Building scalable systems & seamless experiences.',
+  linkedin: 'https://www.linkedin.com/in/vishal-jain-258bb2200/',
+  github: 'https://github.com/VishalJain2905',
+  tagline: 'Senior Software Engineer · AI Systems Builder',
+  headline: 'Full-stack products, real-time platforms, and autonomous AI agents for modern companies.',
+  motto: 'Ship fast. Scale smart. Never stop learning.',
+  quote:
+    'A good developer writes code. A great developer writes systems that others can build on.',
+};
+
+export const highlights = [
+  { value: '3+', label: 'Years building products' },
+  { value: '6+', label: 'Production projects' },
+  { value: 'AI Agents', label: 'End-to-end automation' },
+  { value: 'NestJS', label: 'Scalable APIs' },
+];
+
+export const aiDominate = {
+  brand: 'AI Dominate',
+  tagline: 'Your first AI-dominate company',
+  headline: 'We generate your full AI agent workforce',
+  subheadline:
+    'Not chatbots. Not single prompts. A complete generative AI team — every role in your company, filled by specialized agents that plan, execute, and collaborate autonomously.',
+  description:
+    'AI Dominate helps businesses become AI-first: custom agent stacks wired into your workflows, data, and tools. From engineering and operations to growth and support — your company runs with silicon teammates built to dominate the work that slows you down.',
+  pillars: [
+    {
+      title: 'Full company coverage',
+      description: 'CEO, CTO, engineering, marketing, sales, and support agents — orchestrated to work together, not in silos.',
+    },
+    {
+      title: 'Built on your stack',
+      description: 'Integrations with your APIs, databases, CRMs, and internal tools. Agents act inside your real systems.',
+    },
+    {
+      title: 'Generative & autonomous',
+      description: 'LLM-powered reasoning, tool use, memory, and handoffs — so work completes end-to-end without constant human babysitting.',
+    },
+  ],
+  agents: [
+    { role: 'CEO Agent', focus: 'Strategy, priorities, and cross-team alignment' },
+    { role: 'CTO Agent', focus: 'Architecture reviews, technical decisions, delivery oversight' },
+    { role: 'Engineering Agent', focus: 'Code, APIs, integrations, and shipping features' },
+    { role: 'Marketing Agent', focus: 'Campaigns, content, positioning, and growth experiments' },
+    { role: 'Sales Agent', focus: 'Outreach, qualification, follow-ups, and pipeline updates' },
+    { role: 'Support Agent', focus: 'Tickets, docs, customer replies, and escalation routing' },
+  ],
+  cta: 'Build your AI-dominate company',
 };
 
 export const education = [
@@ -53,6 +97,20 @@ export const experience = [
 ];
 
 export const projects = [
+  {
+    name: 'Hashium',
+    url: 'https://hashium.com/',
+    description:
+      'Web3 portfolio tracker for monitoring crypto holdings, wallet performance, and on-chain assets in one unified dashboard.',
+    tags: ['Web3', 'React', 'Portfolio'],
+  },
+  {
+    name: 'Incoming Class',
+    url: 'https://incomingclass.com/',
+    description:
+      'College community platform to find your squad — connect with classmates, discover groups, and build your network before campus starts.',
+    tags: ['Next.js', 'Social', 'EdTech'],
+  },
   {
     name: 'Ecommerce Website – Fully Automatic Ecom Shop',
     description: 'Scalable eCommerce platform using the MERN stack with secure payment integration and optimised performance. Advanced search and recommendation algorithms for an enhanced shopping experience.',

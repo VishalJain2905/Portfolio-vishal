@@ -1,36 +1,52 @@
 import { motion } from 'framer-motion';
+import { SectionHeader } from './SectionHeader';
+import { profile } from '../data/resume';
 
 export function About() {
   return (
-    <section id="about" className="py-20 sm:py-28 relative bg-grid">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="section-title text-xl mb-6"
-        >
-          About
-        </motion.h2>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="glass rounded-xl p-6 sm:p-8 glow-border"
-        >
-          <p className="text-zinc-300 leading-relaxed mb-4">
-            I'm a <span className="text-accent font-medium">Senior Software Engineer</span> with hands-on experience building
-            full-stack web applications, RESTful APIs, and real-time systems. I focus on scalable architecture, clean code,
-            and seamless user experiences.
-          </p>
-          <p className="text-zinc-400 leading-relaxed">
-            I enjoy working with <span className="text-accent-dim">NestJS</span>, <span className="text-accent-dim">React</span>,{' '}
-            <span className="text-accent-dim">Kafka</span>, and <span className="text-accent-dim">Redis</span> to deliver
-            performant, maintainable solutions. When I'm not coding, I like exploring microservices design and
-            machine-learning applications.
-          </p>
-        </motion.div>
+    <section id="about" className="section-shell bg-slate-50">
+      <div className="section-inner">
+        <SectionHeader
+          label="About"
+          title={
+            <>
+              Engineering leader who ships{' '}
+              <span className="text-slate-500">products that scale</span>
+            </>
+          }
+          subtitle="Full-stack development, distributed systems, and AI-powered automation."
+        />
+
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-5 text-slate-600 leading-relaxed"
+          >
+            <p className="text-lg text-slate-700">
+              I&apos;m <strong className="text-slate-900 font-semibold">{profile.name}</strong>, a Senior
+              Software Engineer at Techvirtue building NestJS APIs, React frontends, and real-time
+              infrastructure with Kafka and Redis.
+            </p>
+            <p>
+              I also design <strong className="text-slate-800">AI agent systems</strong> — autonomous
+              teams that handle engineering, growth, and operations so companies can move faster with
+              less manual overhead.
+            </p>
+            <p className="text-sm text-slate-500">{profile.motto}</p>
+          </motion.div>
+
+          <motion.blockquote
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="quote-block card-pro p-8"
+          >
+            <p className="font-display text-xl text-slate-800 italic leading-relaxed">{profile.quote}</p>
+            <footer className="mt-4 text-sm font-medium text-slate-500">— {profile.name}</footer>
+          </motion.blockquote>
+        </div>
       </div>
     </section>
   );

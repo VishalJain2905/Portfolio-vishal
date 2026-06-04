@@ -28,19 +28,24 @@ export function ThreeBackground() {
     let frameId: number;
     let loadId = 0;
 
-    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.25, 20);
+    const getSize = () => ({
+      w: container.clientWidth || window.innerWidth,
+      h: container.clientHeight || window.innerHeight,
+    });
+    let { w: initW, h: initH } = getSize();
+    camera = new THREE.PerspectiveCamera(45, initW / initH, 0.25, 20);
     camera.position.set(-1.8, 0.6, 2.7);
     camera.lookAt(0, 0, -0.2);
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0f0f14);
+    scene.background = new THREE.Color(0xffffff);
     scene.backgroundBlurriness = 0;
     const initLight = new THREE.AmbientLight(0xffffff, 0.25);
     scene.add(initLight);
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(initW, initH);
     renderer.setAnimationLoop(null);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.2;
@@ -67,16 +72,15 @@ export function ThreeBackground() {
           url,
           (texture) => {
             texture.mapping = THREE.EquirectangularReflectionMapping;
-            scene.background = texture;
             scene.environment = texture;
-            scene.backgroundIntensity = 1.2;
+            scene.background = new THREE.Color(0xffffff);
           },
           undefined,
           () => {
             tried += 1;
             if (tried < HDR_URLS.length) tryLoad(HDR_URLS[tried]);
             else {
-              scene.background = new THREE.Color(0x1a1a24);
+              scene.background = new THREE.Color(0xffffff);
               addFallbackLights();
             }
           }
@@ -142,13 +146,18 @@ export function ThreeBackground() {
     animate();
 
     function onResize() {
-      camera.aspect = window.innerWidth / window.innerHeight;
+      const { w, h } = getSize();
+      if (w === 0 || h === 0) return;
+      camera.aspect = w / h;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(w, h);
     }
+    const resizeObserver = new ResizeObserver(onResize);
+    resizeObserver.observe(container);
     window.addEventListener('resize', onResize);
 
     return () => {
+      resizeObserver.disconnect();
       window.removeEventListener('resize', onResize);
       cancelAnimationFrame(frameId);
       renderer.setAnimationLoop(null);
@@ -170,7 +179,7 @@ export function ThreeBackground() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-0"
+      className="absolute inset-0 z-0 overflow-hidden"
       style={{ pointerEvents: 'none' }}
       aria-hidden
     />

@@ -1,69 +1,70 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
+import { ArrowUpRight, Mail, Linkedin, Github, MapPin, Phone } from 'lucide-react';
+import { SectionHeader } from './SectionHeader';
 import { profile } from '../data/resume';
 
 export function Contact() {
   return (
-    <section id="contact" className="py-20 sm:py-28 relative bg-grid">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="section-title text-xl mb-4"
-        >
-          Get in touch
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-zinc-400 mb-10"
-        >
-          Open to opportunities and collaborations.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass rounded-xl p-8 glow-border flex flex-col sm:flex-row flex-wrap justify-center gap-6"
-        >
-          <a
+    <section id="contact" className="section-shell bg-white">
+      <div className="section-inner">
+        <div className="card-pro max-w-3xl mx-auto p-8 sm:p-12 text-center">
+          <SectionHeader
+            label="Contact"
+            title="Let's build something"
+            subtitle="Open to full-time roles, AI agent projects, and technical consulting."
+            align="center"
+          />
+
+          <motion.a
             href={`mailto:${profile.email}`}
-            className="flex items-center gap-3 text-zinc-300 hover:text-accent transition-colors"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="inline-block text-xl sm:text-2xl font-semibold text-slate-900 hover:text-teal-700 transition-colors mb-8"
           >
-            <Mail size={20} className="shrink-0" /> {profile.email}
-          </a>
-          <a
-            href={`tel:${profile.phone.replace(/-/g, '')}`}
-            className="flex items-center gap-3 text-zinc-300 hover:text-accent transition-colors"
-          >
-            <Phone size={20} className="shrink-0" /> {profile.phone}
-          </a>
-          <span className="flex items-center gap-3 text-zinc-500">
-            <MapPin size={20} className="shrink-0" /> {profile.location}
-          </span>
-          <div className="flex gap-4 w-full justify-center sm:w-auto">
+            {profile.email}
+          </motion.a>
+
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <a href={`mailto:${profile.email}`} className="btn-primary">
+              <Mail size={16} />
+              Send email
+            </a>
             <a
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-border text-zinc-400 hover:border-accent hover:text-accent transition-colors"
-              aria-label="LinkedIn"
+              className="btn-secondary"
             >
-              <Linkedin size={20} />
+              <Linkedin size={16} />
+              LinkedIn
             </a>
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-border text-zinc-400 hover:border-accent hover:text-accent transition-colors"
-              aria-label="GitHub"
-            >
-              <Github size={20} />
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+              <Github size={16} />
+              GitHub
             </a>
           </div>
-        </motion.div>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-4 text-sm text-slate-500">
+            <span className="inline-flex items-center justify-center gap-2">
+              <MapPin size={14} /> {profile.location}
+            </span>
+            <span className="inline-flex items-center justify-center gap-2">
+              <Phone size={14} />
+              <a href={`tel:${profile.phone.replace(/-/g, '')}`} className="hover:text-teal-700">
+                {profile.phone}
+              </a>
+            </span>
+          </div>
+
+          <a
+            href={`mailto:${profile.email}?subject=AI Dominate`}
+            className="inline-flex items-center gap-1 mt-8 text-sm font-semibold text-teal-700 hover:text-teal-800"
+          >
+            Discuss AI Dominate for your company
+            <ArrowUpRight size={14} />
+          </a>
+        </div>
       </div>
     </section>
   );
