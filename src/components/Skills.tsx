@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { SectionHeader } from './SectionHeader';
 import { skills } from '../data/resume';
+import { tint } from '../clay';
 
 const skillGroups: { title: string; items: string[] }[] = [
   { title: 'Languages', items: skills.languages },
@@ -15,11 +16,11 @@ const skillGroups: { title: string; items: string[] }[] = [
 
 export function Skills() {
   return (
-    <section id="skills" className="section-shell bg-white">
+    <section id="skills" className="section-shell">
       <div className="section-inner">
         <SectionHeader label="Skills" title="Technical expertise" />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {skillGroups.map(({ title, items }, i) => (
             <motion.div
               key={title}
@@ -27,12 +28,12 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: (i % 4) * 0.04 }}
-              className="card-pro p-5"
+              className={`clay-hover ${tint(i)} p-5 sm:p-6`}
             >
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-teal-700 mb-3">{title}</h3>
-              <div className="flex flex-wrap gap-1.5">
+              <h3 className="font-display text-base font-semibold text-ink mb-4">{title}</h3>
+              <div className="flex flex-wrap gap-2">
                 {items.map((s) => (
-                  <span key={s} className="text-xs text-slate-600 bg-slate-50 border border-slate-100 rounded px-2 py-1">
+                  <span key={s} className="clay-chip bg-white/75 !font-medium">
                     {s}
                   </span>
                 ))}

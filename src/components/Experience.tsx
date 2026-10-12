@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion';
+import { Briefcase } from 'lucide-react';
 import { SectionHeader } from './SectionHeader';
 import { experience } from '../data/resume';
+import { tint } from '../clay';
 
 export function Experience() {
   return (
-    <section id="experience" className="section-shell bg-white">
+    <section id="experience" className="section-shell">
       <div className="section-inner">
         <SectionHeader label="Experience" title="Professional work" subtitle="From intern to senior engineer — shipping production software." />
 
-        <div className="space-y-6">
+        <div className="space-y-7">
           {experience.map((job, i) => (
             <motion.article
               key={job.company + job.period}
@@ -16,20 +18,26 @@ export function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="card-pro-hover p-6 sm:p-8"
+              className="clay-hover p-6 sm:p-8"
             >
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-900">{job.company}</h3>
-                  <p className="text-teal-700 text-sm font-medium mt-0.5">{job.role}</p>
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
+                <div className="flex items-start gap-4">
+                  <span className={`clay-icon ${tint(i)} h-12 w-12 text-accent-dim`}>
+                    <Briefcase size={20} />
+                  </span>
+                  <div>
+                    <h3 className="font-display text-xl font-semibold text-ink">{job.company}</h3>
+                    <p className="text-accent-dim text-sm font-bold mt-0.5">{job.role}</p>
+                  </div>
                 </div>
-                <p className="mono-label text-slate-500 shrink-0">
+                <p className="clay-chip bg-white/70 mono-label shrink-0 self-start">
                   {job.period} · {job.location}
                 </p>
               </div>
-              <ul className="space-y-2.5">
+              <ul className="space-y-2.5 sm:pl-16">
                 {job.points.map((point, j) => (
-                  <li key={j} className="text-slate-600 text-sm sm:text-[15px] leading-relaxed pl-4 border-l-2 border-slate-200">
+                  <li key={j} className="relative pl-5 text-ink-muted text-sm sm:text-[15px] leading-relaxed">
+                    <span className="absolute left-0 top-[0.55em] h-2 w-2 rounded-full bg-accent/60" />
                     {point}
                   </li>
                 ))}

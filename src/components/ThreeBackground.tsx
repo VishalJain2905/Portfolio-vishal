@@ -38,12 +38,13 @@ export function ThreeBackground() {
     camera.lookAt(0, 0, -0.2);
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xffffff);
+    scene.background = null;
     scene.backgroundBlurriness = 0;
     const initLight = new THREE.AmbientLight(0xffffff, 0.25);
     scene.add(initLight);
 
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(initW, initH);
     renderer.setAnimationLoop(null);
@@ -73,14 +74,14 @@ export function ThreeBackground() {
           (texture) => {
             texture.mapping = THREE.EquirectangularReflectionMapping;
             scene.environment = texture;
-            scene.background = new THREE.Color(0xffffff);
+            scene.background = null;
           },
           undefined,
           () => {
             tried += 1;
             if (tried < HDR_URLS.length) tryLoad(HDR_URLS[tried]);
             else {
-              scene.background = new THREE.Color(0xffffff);
+              scene.background = null;
               addFallbackLights();
             }
           }

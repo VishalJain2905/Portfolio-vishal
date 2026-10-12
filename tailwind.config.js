@@ -4,18 +4,17 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-        display: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Nunito', 'system-ui', 'sans-serif'],
+        display: ['Fredoka', 'Nunito', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
-        void: '#ffffff',
-        surface: '#f8fafc',
-        border: '#e2e8f0',
-        accent: '#0d9488',
-        'accent-dim': '#0f766e',
-        ink: '#0f172a',
-        muted: '#64748b',
+        bg: '#f1ecfb',
+        accent: '#7c5cff',
+        'accent-dim': '#5b3fe0',
+        ink: '#2b2240',
+        'ink-muted': '#4f4668',
+        muted: '#7a7194',
       },
     },
   },

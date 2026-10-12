@@ -3,13 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { profile } from '../data/resume';
 
+
 const navLinks = [
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Work' },
-  { id: 'projects', label: 'Projects' },
+  { id: 'services', label: 'Services' },
+  { id: 'projects', label: 'Work' },
+  { id: 'process', label: 'Process' },
   { id: 'ai', label: 'AI Dominate' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'about', label: 'About' },
+  { id: 'faq', label: 'FAQ' },
 ];
 
 export function Nav() {
@@ -23,37 +24,29 @@ export function Nav() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm shadow-slate-200/50'
-          : 'bg-white/70 backdrop-blur-sm'
-      }`}
-    >
-      <nav className="max-w-6xl mx-auto px-5 sm:px-8 h-[4.25rem] flex items-center justify-between">
-        <a href="#hero" className="flex items-center gap-2.5 font-semibold text-slate-900">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-900 text-xs font-bold text-white">
+    <header className={`fixed inset-x-0 z-50 px-3 sm:px-5 transition-all duration-300 ${scrolled ? 'top-2' : 'top-4'}`}>
+      <nav className="clay max-w-6xl mx-auto h-16 pl-3 pr-3 sm:pl-4 flex items-center justify-between !rounded-full">
+        <a href="#hero" className="flex items-center gap-2.5 font-bold text-ink">
+          <span className="clay-icon clay-lilac h-10 w-10 !rounded-full font-display text-sm font-semibold text-accent-dim">
             {profile.initials}
           </span>
-          <span className="hidden sm:inline text-sm">{profile.name.split(' ')[0]}</span>
+          <span className="hidden sm:inline font-display text-lg font-medium">{profile.name.split(' ')[0]}</span>
         </a>
 
-        <div className="hidden lg:flex items-center gap-7">
+        <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <a
               key={link.id}
               href={`#${link.id}`}
-              className={`text-sm font-medium transition-colors ${
-                link.id === 'ai'
-                  ? 'text-teal-700 hover:text-teal-800'
-                  : 'text-slate-600 hover:text-slate-900'
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors hover:bg-white/80 ${
+                link.id === 'ai' ? 'text-accent-dim' : 'text-ink-muted hover:text-ink'
               }`}
             >
               {link.label}
             </a>
           ))}
-          <a href={`mailto:${profile.email}`} className="btn-primary py-2.5 px-5 text-xs">
-            Hire me
+          <a href="#contact" className="btn-primary ml-2 py-2.5 px-5 text-xs">
+            Start a project
             <ArrowUpRight size={14} />
           </a>
         </div>
@@ -61,34 +54,34 @@ export function Nav() {
         <button
           type="button"
           aria-label="Menu"
-          className="lg:hidden p-2 text-slate-600"
+          className="btn-round lg:hidden"
           onClick={() => setOpen((o) => !o)}
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </nav>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-slate-200 bg-white"
+            initial={{ opacity: 0, y: -10, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.97 }}
+            className="clay lg:hidden max-w-6xl mx-auto mt-3 p-4"
           >
-            <div className="px-5 py-5 flex flex-col gap-3">
+            <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.id}
                   href={`#${link.id}`}
-                  className="text-slate-700 font-medium py-1"
+                  className="rounded-2xl px-4 py-2.5 font-semibold text-ink-muted hover:bg-white/80 hover:text-ink"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
-              <a href={`mailto:${profile.email}`} className="btn-primary mt-2 w-fit" onClick={() => setOpen(false)}>
-                Hire me
+              <a href="#contact" className="btn-primary mt-2 w-fit" onClick={() => setOpen(false)}>
+                Start a project
               </a>
             </div>
           </motion.div>

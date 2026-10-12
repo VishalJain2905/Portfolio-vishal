@@ -15,18 +15,18 @@ export function SectionHeader({ label, title, subtitle, align = 'left', dark = f
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`mb-12 sm:mb-14 ${align === 'center' ? 'text-center max-w-2xl mx-auto' : 'max-w-3xl'}`}
+      className={`mb-10 sm:mb-14 ${align === 'center' ? 'text-center max-w-2xl mx-auto' : 'max-w-3xl'}`}
     >
-      <p className={`mono-label mb-3 ${dark ? 'text-teal-400' : 'text-teal-700'}`}>{label}</p>
+      <p className={`label-pill mb-4 ${dark ? '!bg-white/10 !text-violet-200 !shadow-none' : ''}`}>{label}</p>
       <h2
-        className={`font-display text-3xl sm:text-4xl font-medium leading-tight tracking-tight ${
-          dark ? 'text-white' : 'text-slate-900'
+        className={`font-display text-3xl sm:text-4xl md:text-[2.6rem] font-semibold leading-tight tracking-tight ${
+          dark ? 'text-white' : 'text-ink'
         }`}
       >
         {title}
       </h2>
       {subtitle && (
-        <p className={`mt-4 text-base sm:text-lg leading-relaxed ${dark ? 'text-slate-400' : 'text-slate-600'}`}>
+        <p className={`mt-4 text-base sm:text-lg leading-relaxed ${dark ? 'text-violet-200/80' : 'text-ink-muted'}`}>
           {subtitle}
         </p>
       )}

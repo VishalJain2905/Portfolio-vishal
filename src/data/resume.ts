@@ -7,17 +7,20 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/vishal-jain-258bb2200/',
   github: 'https://github.com/VishalJain2905',
   tagline: 'Senior Software Engineer · AI Systems Builder',
-  headline: 'Full-stack products, real-time platforms, and autonomous AI agents for modern companies.',
+  availability: 'Taking on new projects',
+  headline:
+    'I turn your idea into a fast, reliable product — web apps, online stores, real-time platforms and AI agents that save your team hours every week.',
+  whatsapp: '919993746976',
   motto: 'Ship fast. Scale smart. Never stop learning.',
   quote:
     'A good developer writes code. A great developer writes systems that others can build on.',
 };
 
 export const highlights = [
-  { value: '3+', label: 'Years building products' },
-  { value: '6+', label: 'Production projects' },
-  { value: 'AI Agents', label: 'End-to-end automation' },
-  { value: 'NestJS', label: 'Scalable APIs' },
+  { value: '3+', label: 'Years shipping production software' },
+  { value: '9', label: 'Products built end-to-end' },
+  { value: 'Real-time', label: 'Kafka & Redis at the core' },
+  { value: 'AI Agents', label: 'Automation that runs itself' },
 ];
 
 export const aiDominate = {
@@ -69,9 +72,9 @@ export const experience = [
     period: 'September 2023 – May 2024',
     location: 'On-site',
     points: [
-      'Developing and maintaining web applications optimised for various devices and browsers.',
-      'Implementing responsive design and cross-browser compatibility for different screen sizes.',
-      'Developing user-friendly and interactive web features such as buttons, forms, and menus.',
+      'Built responsive web apps that work smoothly on every phone, tablet and browser.',
+      'Turned designs into polished, interactive interfaces — forms, menus and flows users enjoy.',
+      'Learned to ship production code in a fast-moving client team.',
     ],
   },
   {
@@ -80,8 +83,9 @@ export const experience = [
     period: 'June 2024 – July 2025',
     location: 'On-site',
     points: [
-      'Built and maintained scalable RESTful APIs using NestJS with seamless front-end integration.',
-      'Optimised performance, implemented security best practices, and managed database interactions for robust backend solutions.',
+      'Owned NestJS REST APIs end-to-end, from database design to front-end integration.',
+      'Built real-time ride and location features with Kafka and Redis for mobility products.',
+      'Improved performance and hardened security so client apps stayed fast and safe as they grew.',
     ],
   },
   {
@@ -90,8 +94,9 @@ export const experience = [
     period: 'July 2025 – Present',
     location: 'On-site',
     points: [
-      'Building and maintaining scalable RESTful APIs using NestJS with seamless front-end integration.',
-      'Optimising performance, implementing security best practices, and managing database interactions for robust backend solutions.',
+      'Lead backend development of scalable NestJS services and their front-end integrations.',
+      'Design systems for performance, security and clean data models that other engineers can build on.',
+      'Build AI-powered automation and agent workflows alongside core product work.',
     ],
   },
 ];
@@ -100,46 +105,137 @@ export const projects = [
   {
     name: 'Hashium',
     url: 'https://hashium.com/',
+    category: 'Web3 · Live',
     description:
-      'Web3 portfolio tracker for monitoring crypto holdings, wallet performance, and on-chain assets in one unified dashboard.',
-    tags: ['Web3', 'React', 'Portfolio'],
+      'One dashboard for every crypto wallet. Users track holdings, wallet performance and on-chain assets without juggling exchanges and explorers.',
+    tags: ['Web3', 'React', 'Dashboards'],
   },
   {
     name: 'Incoming Class',
     url: 'https://incomingclass.com/',
+    category: 'EdTech · Live',
     description:
-      'College community platform to find your squad — connect with classmates, discover groups, and build your network before campus starts.',
+      'A community platform where students find their squad before campus starts — classmates, groups and connections from day one.',
     tags: ['Next.js', 'Social', 'EdTech'],
   },
   {
-    name: 'Ecommerce Website – Fully Automatic Ecom Shop',
-    description: 'Scalable eCommerce platform using the MERN stack with secure payment integration and optimised performance. Advanced search and recommendation algorithms for an enhanced shopping experience.',
-    tags: ['MERN', 'Payments', 'Search'],
-  },
-  {
-    name: 'Abanonya Dating App',
-    description: 'Real-time dating platform using Node.js, Express, and Next.js with dynamic user matching and messaging. Responsive UI with seamless navigation and profile management.',
-    tags: ['Node.js', 'Next.js', 'Real-time'],
+    name: 'Arihant Suits & Sarees',
+    category: 'E-commerce',
+    description:
+      'Complete online store for an ethnic-wear brand: storefront, WhatsApp ordering, coupons and returns, plus an admin panel to manage products, stock and orders without a developer.',
+    tags: ['Next.js', 'NestJS', 'Admin panel'],
   },
   {
     name: 'UpDown Trip',
-    description: 'Cab-sharing application using NestJS: user authentication, trip management, payment integration. Real-time ride matching, booking, and live tracking. Kafka for ride lifecycle messaging; Redis for driver location updates.',
+    category: 'Mobility',
+    description:
+      'Cab-sharing app with live ride matching, booking, payments and tracking. Kafka keeps every ride event in sync; Redis keeps driver locations instant.',
+    tags: ['NestJS', 'Kafka', 'Redis'],
+  },
+  {
+    name: 'Safiride',
+    category: 'Mobility',
+    description:
+      'On-demand electric bike rides — real-time booking, driver allocation and payments for eco-friendly roadside pickups.',
     tags: ['NestJS', 'Kafka', 'Redis'],
   },
   {
     name: 'Haulermates',
-    description: 'Social platform for truck drivers to connect during breaks. Location-based discovery of rest areas, service stations, and peers. Kafka for live location events; Redis for real-time updates and proximity-based discovery.',
-    tags: ['Kafka', 'Redis', 'Location'],
+    category: 'Social · Location',
+    description:
+      'A social network for truck drivers: find rest areas, service stations and fellow drivers nearby, with live location updates.',
+    tags: ['Kafka', 'Redis', 'Geo'],
   },
   {
-    name: 'Quick Support – Multi-Profile Management',
-    description: 'System for managing multiple profiles across platforms. Smooth authentication, role-based access, and seamless profile switching.',
-    tags: ['Auth', 'RBAC'],
+    name: 'Fully Automatic Ecom Shop',
+    category: 'E-commerce',
+    description:
+      'MERN e-commerce platform with secure payments, smart search and product recommendations that help shoppers find what they want faster.',
+    tags: ['MERN', 'Payments', 'Search'],
   },
   {
-    name: 'Safiride',
-    description: 'Uber-like electric bike ride-hailing platform for eco-friendly, on-demand roadside pickups. Real-time booking, driver allocation, payment processing. Kafka for ride event streaming; Redis for driver location tracking and e-ride workflow.',
-    tags: ['NestJS', 'Kafka', 'Redis'],
+    name: 'Abanonya Dating App',
+    category: 'Real-time',
+    description:
+      'Dating platform with dynamic matching and instant messaging, wrapped in a clean, responsive UI.',
+    tags: ['Node.js', 'Next.js', 'Real-time'],
+  },
+  {
+    name: 'Quick Support',
+    category: 'SaaS',
+    description:
+      'Manage many profiles across platforms from one place — secure login, role-based access and one-click profile switching.',
+    tags: ['Auth', 'RBAC', 'SaaS'],
+  },
+];
+
+export const services = [
+  {
+    title: 'MVPs & SaaS products',
+    description: 'From idea to a launched product. I scope the essentials, build fast and leave you a codebase that can grow.',
+    points: ['Product scoping', 'Web app + API', 'Auth, billing, dashboards'],
+  },
+  {
+    title: 'E-commerce stores',
+    description: 'Online stores that sell — product catalogue, cart, checkout, WhatsApp or online payments and an easy admin panel.',
+    points: ['Storefront', 'Payments & orders', 'Admin & inventory'],
+  },
+  {
+    title: 'Real-time & mobility apps',
+    description: 'Live tracking, booking, chat and notifications built on Kafka and Redis so everything updates instantly.',
+    points: ['Live location', 'Matching & booking', 'Event streaming'],
+  },
+  {
+    title: 'AI agents & automation',
+    description: 'Agents that handle support, sales follow-ups, reports and repetitive ops work inside the tools you already use.',
+    points: ['Custom AI agents', 'Workflow automation', 'CRM & API integrations'],
+  },
+  {
+    title: 'Backend & API engineering',
+    description: 'Fast, secure NestJS and Node.js APIs, microservices and databases designed to handle growth.',
+    points: ['REST & gRPC', 'Microservices', 'Performance tuning'],
+  },
+  {
+    title: 'Rescue & scale',
+    description: 'Existing app slow, buggy or stuck? I audit, fix the bottlenecks and get your roadmap moving again.',
+    points: ['Code audit', 'Bug fixing', 'Speed & security'],
+  },
+];
+
+export const workProcess = [
+  { step: '01', title: 'Free discovery call', description: 'We talk about your goals, users and budget. You get honest advice — even if that means a simpler solution.' },
+  { step: '02', title: 'Clear plan & quote', description: 'A written scope with features, timeline and a fixed price or milestone plan. No surprises later.' },
+  { step: '03', title: 'Build with weekly demos', description: 'You see working software every week and give feedback early, so the final product is exactly what you need.' },
+  { step: '04', title: 'Launch & support', description: 'Deployment, handover and documentation, plus post-launch support so you are never left on your own.' },
+];
+
+export const whyMe = [
+  { title: 'One person, full stack', description: 'Frontend, backend, database, real-time and AI — no hand-offs between agencies.' },
+  { title: 'Built for real users', description: 'Live products in Web3, EdTech, mobility and e-commerce — not just demos.' },
+  { title: 'Direct communication', description: 'You talk to the engineer building your product, on call, email or WhatsApp.' },
+  { title: 'You own everything', description: 'Clean, documented code and full access to your repo, servers and data.' },
+];
+
+export const faqs = [
+  {
+    q: 'How long does a project take?',
+    a: 'A focused MVP or online store usually takes 3–8 weeks depending on scope. You get a clear timeline in the plan before we start.',
+  },
+  {
+    q: 'How do you price projects?',
+    a: 'Fixed price for well-defined scopes, or milestone-based for larger builds. You only pay for what is agreed in writing.',
+  },
+  {
+    q: 'Can you work on my existing app?',
+    a: 'Yes. I can audit your current codebase, fix bugs and performance issues, and add new features without a rewrite.',
+  },
+  {
+    q: 'Do you provide support after launch?',
+    a: 'Yes — every project includes a support window after launch, and ongoing maintenance plans are available.',
+  },
+  {
+    q: 'Do you work with international clients?',
+    a: 'Absolutely. I work remotely with clients across time zones and keep you updated with regular demos and reports.',
   },
 ];
 

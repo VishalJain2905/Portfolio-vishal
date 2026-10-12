@@ -1,50 +1,52 @@
 import { motion } from 'framer-motion';
+import { Quote } from 'lucide-react';
 import { SectionHeader } from './SectionHeader';
 import { profile } from '../data/resume';
 
 export function About() {
   return (
-    <section id="about" className="section-shell bg-slate-50">
+    <section id="about" className="section-shell">
       <div className="section-inner">
         <SectionHeader
           label="About"
           title={
             <>
-              Engineering leader who ships{' '}
-              <span className="text-slate-500">products that scale</span>
+              Engineering leader who ships <span className="text-accent">products that scale</span>
             </>
           }
           subtitle="Full-stack development, distributed systems, and AI-powered automation."
         />
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="space-y-5 text-slate-600 leading-relaxed"
+            className="clay p-7 sm:p-9 space-y-5 text-ink-muted leading-relaxed"
           >
-            <p className="text-lg text-slate-700">
-              I&apos;m <strong className="text-slate-900 font-semibold">{profile.name}</strong>, a Senior
-              Software Engineer at Techvirtue building NestJS APIs, React frontends, and real-time
-              infrastructure with Kafka and Redis.
+            <p className="text-lg text-ink">
+              I&apos;m <strong className="font-bold">{profile.name}</strong>, a Senior Software Engineer at
+              Techvirtue building NestJS APIs, React frontends, and real-time infrastructure with Kafka and Redis.
             </p>
             <p>
-              I also design <strong className="text-slate-800">AI agent systems</strong> — autonomous
-              teams that handle engineering, growth, and operations so companies can move faster with
-              less manual overhead.
+              I also design <strong className="text-ink">AI agent systems</strong> — autonomous teams that handle
+              engineering, growth, and operations so companies can move faster with less manual overhead.
             </p>
-            <p className="text-sm text-slate-500">{profile.motto}</p>
+            <p className="clay-chip clay-mint">{profile.motto}</p>
           </motion.div>
 
           <motion.blockquote
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="quote-block card-pro p-8"
+            transition={{ delay: 0.08 }}
+            className="quote-block clay clay-lilac p-8 sm:p-10 m-0"
           >
-            <p className="font-display text-xl text-slate-800 italic leading-relaxed">{profile.quote}</p>
-            <footer className="mt-4 text-sm font-medium text-slate-500">— {profile.name}</footer>
+            <span className="clay-icon clay-peach h-12 w-12 mb-5 text-accent-dim">
+              <Quote size={20} />
+            </span>
+            <p className="font-display text-xl sm:text-2xl text-ink leading-relaxed">{profile.quote}</p>
+            <footer className="mt-5 text-sm font-semibold text-ink-muted">— {profile.name}</footer>
           </motion.blockquote>
         </div>
       </div>
